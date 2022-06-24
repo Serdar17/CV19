@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19Console", "Tests\CV19Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19WPFTest", "Tests\CV19WPFTest\CV19WPFTest.csproj", "{FAA64DF1-108B-465D-9F32-DCF8A8E76875}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsLib", "Tests\TestsLib\TestsLib.csproj", "{66B529C2-0817-4DA0-B401-03F93B684926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLibFramework", "Tests\TestLibFramework\TestLibFramework.csproj", "{DE9DB329-50DD-414E-BDE8-E6A66A64E299}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{FAA64DF1-108B-465D-9F32-DCF8A8E76875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA64DF1-108B-465D-9F32-DCF8A8E76875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA64DF1-108B-465D-9F32-DCF8A8E76875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B529C2-0817-4DA0-B401-03F93B684926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B529C2-0817-4DA0-B401-03F93B684926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B529C2-0817-4DA0-B401-03F93B684926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B529C2-0817-4DA0-B401-03F93B684926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9DB329-50DD-414E-BDE8-E6A66A64E299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9DB329-50DD-414E-BDE8-E6A66A64E299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9DB329-50DD-414E-BDE8-E6A66A64E299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9DB329-50DD-414E-BDE8-E6A66A64E299}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2AEF71D5-BE9D-4994-A734-C47EF1A69236} = {A934E127-86EA-4C0D-899E-8F8C29EE209D}
 		{FAA64DF1-108B-465D-9F32-DCF8A8E76875} = {A934E127-86EA-4C0D-899E-8F8C29EE209D}
+		{66B529C2-0817-4DA0-B401-03F93B684926} = {A934E127-86EA-4C0D-899E-8F8C29EE209D}
+		{DE9DB329-50DD-414E-BDE8-E6A66A64E299} = {A934E127-86EA-4C0D-899E-8F8C29EE209D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {12ABA45D-8379-4F76-BAA6-ECB88A014060}

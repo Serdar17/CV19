@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CV19.Infrastructure.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CV19.ViewModel.Base
 {
@@ -30,5 +33,23 @@ namespace CV19.ViewModel.Base
         }
 
         #endregion
+
+
+        #region Команды
+
+        public ICommand CloseApplicationComand { get; }
+
+        private void OnCloseApplicationComandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanCloseApplicationComandExecute(object p) => true;
+        #endregion
+        public MainWindowViewModel()
+        {
+            CloseApplicationComand = new LambdaCommand(OnCloseApplicationComandExecuted, CanCloseApplicationComandExecute);
+
+        }
     }
 }

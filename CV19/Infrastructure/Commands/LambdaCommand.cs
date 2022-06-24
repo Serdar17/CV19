@@ -5,11 +5,11 @@ using System.Text;
 
 namespace CV19.Infrastructure.Commands
 {
-    internal class LamdaCommand : Command
+    internal class LambdaCommand : Command
     {
         private readonly Action<object> _Execute;
         private readonly Func<object, bool> _CanExecute;
-        public LamdaCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
+        public LambdaCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
         {
             _Execute = Execute ?? throw new ArgumentNullException(nameof(Execute));
             _CanExecute = CanExecute;

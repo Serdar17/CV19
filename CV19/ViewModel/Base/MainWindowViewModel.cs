@@ -15,5 +15,20 @@ namespace CV19.ViewModel.Base
             set => Set(ref _Title, value);
         }
         #endregion
+
+        #region Status: string - Статус программы
+
+        private string _Status = "Готово!";
+
+        /// <summary>
+        /// Статус программы
+        /// </summary>
+        public string Status
+        {
+            get => _Status;
+            set => Set(ref _Status, value);
+        }
+
+        #endregion
     }
 }

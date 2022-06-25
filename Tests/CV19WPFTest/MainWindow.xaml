@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="228,94,0,0" VerticalAlignment="Top" Height="50" Width="138"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="76,175,0,0" VerticalAlignment="Top" Height="30" Width="150"/>
+        <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="474,134,0,0" VerticalAlignment="Top" Height="42" Width="163"/>
+        <Slider HorizontalAlignment="Left" Margin="270,232,0,0" VerticalAlignment="Top" Width="201" Height="64"/>
 
     </Grid>
 </Window>

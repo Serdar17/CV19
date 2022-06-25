@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:vm="clr-namespace:CV19.ViewModel.Base"
         xmlns:cmd="clr-namespace:CV19.Infrastructure.Commands"
         xmlns:l="clr-namespace:CV19" 
@@ -22,7 +23,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
                 <!--<MenuItem Header="Выход" Command="{Binding CloseApplicationComand}" CommandParameter=""/>-->
-                <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}" />
+                <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand   }" />
                 <!--<MenuItem Header="Выход">
                     <MenuItem.Command>
                         <cmd:CloseApplicationCommand/>
@@ -42,26 +43,33 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Вкладка1">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="31*"/>
-                        <RowDefinition Height="66*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="327*"/>
-                        <ColumnDefinition Width="467*"/>
-                    </Grid.ColumnDefinitions>
-                    <Rectangle Grid.Row="0" Grid.Column="0" Fill="Blue" Stroke="Red" StrokeThickness="3" RadiusX="5" RadiusY="7"/>
-                    <Ellipse Grid.Column="1" Grid.Row="0" Fill="Red" 
+            <TabItem>
+                <!--<TabItem Header="Вкладка1">-->
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0" Foreground="Blue"/>
+                    <TextBlock Text="Вкладка 1"/>
+                </StackPanel>
+            </TabItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="31*"/>
+                    <RowDefinition Height="66*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="327*"/>
+                    <ColumnDefinition Width="467*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Blue" Stroke="Red" StrokeThickness="3" RadiusX="5" RadiusY="7"/>
+                <Ellipse Grid.Column="1" Grid.Row="0" Fill="Red" 
                              StrokeThickness="3" Stroke="red">
-                        <Ellipse.InputBindings>
-                            <MouseBinding Command="{Binding CloseApplicationComand}"
+                    <Ellipse.InputBindings>
+                        <MouseBinding Command="{Binding CloseApplicationComand}"
                                           MouseAction="LeftDoubleClick"/>
-                        </Ellipse.InputBindings>
-                    </Ellipse>
-                    <GridSplitter Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="4"/>
-                </Grid>
+                    </Ellipse.InputBindings>
+                </Ellipse>
+                <GridSplitter Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="4"/>
+            </Grid>
             </TabItem>
             <TabItem Header="Вкладка2"></TabItem>
         </TabControl>

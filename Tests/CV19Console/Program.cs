@@ -19,8 +19,13 @@ namespace CV19Console
 
             //foreach (var dataLine in GetDataLines())
             //    Console.WriteLine(dataLine);
-            var dates = GetDates();
-            Console.WriteLine(string.Join("\r\n", dates));
+            //var dates = GetDates();
+            //Console.WriteLine(string.Join("\r\n", dates));
+
+            var uzbekistanData = GetData()
+                .First(item => item.country.Equals("Uzbekistan", StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine(string.Join("\r\n", GetDates().Zip(uzbekistanData.counts, (date, count) => $"{date} - {count}")));
 
             Console.WriteLine("Hello World!");
         }
@@ -43,7 +48,7 @@ namespace CV19Console
                 var line = dataReader.ReadLine();
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
-                yield return line;
+                yield return line.Replace("Korea,", "Korea -");
             }
         }
 
@@ -53,5 +58,26 @@ namespace CV19Console
             .Skip(4)
             .Select(item => DateTime.Parse(item, CultureInfo.InvariantCulture))
             .ToArray();
+
+        private static IEnumerable<(string country, string province, int[] counts)> GetData()
+        {
+            var lines = GetDataLines()
+                .Skip(1)
+                .Select(line => line.Split(','));
+
+            foreach (var row in lines)
+            {
+                var province = row[0].Trim();
+                var countryName = row[1].Trim(' ', '"');
+                int[] counts = null;
+                if (row.Length == 889)
+                    counts = row.Skip(4).Select(int.Parse).ToArray();
+                else
+                    counts = row.Skip(5).Select(int.Parse).ToArray();
+
+                yield return (countryName, province, counts);
+            }
+
+        }
     }
 }

@@ -97,11 +97,49 @@ namespace CV19.ViewModel.Base
             SelectedPageIndex += Convert.ToInt32(p);
 
         }
+
+        #region CreateGroupCommand
+        public ICommand CreateGroupCommand { get; set; }
+
+        private bool CanCreateGroupCommandExecute(object p) => true;
+
+        private void OnCreateGroupCommandExecuted(object p)
+        {
+            var groupIndex = Groups.Count + 1;
+            var group = new Group
+            {
+                Name = $"Группа {groupIndex}",
+                Students = new ObservableCollection<Student>()
+            };
+            Groups.Add(group);
+        }
         #endregion
+
+        #region DeleteGroupCommand
+        public ICommand DeleteGroupCommand { get; set; }
+
+        private bool CanDeleteGroupCommandExecute(object p) => p is Group group && Groups.Contains(group);
+
+        private void OnDeleteGroupCommandExecuted(object p)
+        {
+            if (!(p is Group group))
+                return;
+            var groupIndex = Groups.IndexOf(group);
+            Groups.Remove(group);
+            if (groupIndex < Groups.Count)
+                SelectedGroup = Groups[groupIndex];
+        }
+        #endregion
+
+
+        #endregion
+
         public MainWindowViewModel()
         {
             CloseApplicationComand = new LambdaCommand(OnCloseApplicationComandExecuted, CanCloseApplicationComandExecute);
             ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecute);
+            CreateGroupCommand = new LambdaCommand(OnCreateGroupCommandExecuted, CanCreateGroupCommandExecute);
+            DeleteGroupCommand = new LambdaCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
 
 
             var data_points = new List<OxyPlot.DataPoint>((int)(360 / 0.1));

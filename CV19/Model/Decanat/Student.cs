@@ -11,6 +11,8 @@ namespace CV19.Model.Decanat
         public string Patronymic { get; set; }
         public DateTime BirthDay { get; set; }
         public double Rating { get; set; }
+
+        public string Description { get; set; }
     }
 
     internal class Group
@@ -22,5 +24,7 @@ namespace CV19.Model.Decanat
         {
             return base.ToString();
         }
+
+        public string Description { get; set; }
     }
 }

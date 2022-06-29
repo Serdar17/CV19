@@ -1,9 +1,12 @@
 ﻿using CV19.Infrastructure.Commands;
 using CV19.Model;
+using CV19.Model.Decanat;
 using OxyPlot;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -13,6 +16,18 @@ namespace CV19.ViewModel.Base
 {
     internal class MainWindowViewModel : ViewModel
     {
+        public ObservableCollection<Group> Groups { get; set; }
+
+        #region SelectedGroup : Group - Выбранная группа
+
+        private Group _SelectedGroup;
+
+        public Group SelectedGroup { get => _SelectedGroup; set => Set(ref _SelectedGroup, value); }
+
+        #endregion
+
+
+
         #region TestDataPoints : IEnumerable<DataPoint> - DESCRIPTION
         private IEnumerable<OxyPlot.DataPoint> _TestDataPoints;
         /// <summary>
@@ -101,6 +116,25 @@ namespace CV19.ViewModel.Base
             MyModel = new PlotModel { Title = "График" };
             MyModel.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
             //MyModel.Series.Add(data_points);
+
+            var studentIndex = 1;
+            var students = Enumerable.Range(1, 20).Select(item => new Student
+            {
+                Name = $"Name {studentIndex}",
+                Surname = $"Surname {studentIndex}",
+                Patronymic = $"Patronymic {studentIndex++}",
+                BirthDay = DateTime.Now,
+                Rating = 0
+
+            });
+
+            var groups = Enumerable.Range(1, 20).Select(item => new Group
+            {
+                Name = $"Группа {item}",
+                Students = new ObservableCollection<Student>(students)
+
+            });
+            Groups = new ObservableCollection<Group>(groups);
         }
     }
 }

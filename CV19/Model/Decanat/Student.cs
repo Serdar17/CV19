@@ -17,5 +17,10 @@ namespace CV19.Model.Decanat
     {
         public string Name { get; set; }
         public ICollection<Student> Students { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

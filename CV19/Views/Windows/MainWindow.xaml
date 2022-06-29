@@ -56,15 +56,16 @@
             </StatusBarItem>
         </StatusBar>
         <TabControl SelectedIndex="{Binding SelectedPageIndex}">
-            <TabItem>
-                <!--<TabItem Header="Вкладка1">-->
-                <TabItem.Header>
+            <!--<TabItem>
+                <TabItem Header="Вкладка1"/>
+                -->
+            <!--<TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <fa:ImageAwesome Icon="Regular_File" Height="13" Margin="0,0,5,0" Foreground="Blue"/>
                         <TextBlock Text="Вкладка 1"/>
                     </StackPanel>
-                </TabItem.Header>
-                <Grid>
+                </TabItem.Header>-->
+            <!--<Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="31*"/>
                         <RowDefinition Height="66*"/>
@@ -82,13 +83,29 @@
                         </Ellipse.InputBindings>
                     </Ellipse>
                     <GridSplitter Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Right" Width="4"/>
-                </Grid>
-            </TabItem>
+                </Grid>-->
+            <!--
+            </TabItem>-->
             <TabItem Header="График">
                 <oxy:PlotView Model="{Binding MyModel}">
                 </oxy:PlotView>
             </TabItem>
-            <TabItem Header="Вкладка 2"></TabItem>
+            <TabItem Header="Студенты">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Header="Группы">
+                        <ListBox ItemsSource="{Binding Groups}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedGroup}"/>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name, StringFormat='Студенты группы {0}', FallbackValue='Студенты', TargetNullValue='Группа не выбрана'}">
+                        <DataGrid>
+
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
             <TabItem Header="Вкладка 3"></TabItem>
             <TabItem Header="Вкладка 4"></TabItem>
             <TabItem Header="Вкладка 5"></TabItem>

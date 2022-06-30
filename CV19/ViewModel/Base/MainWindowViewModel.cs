@@ -16,6 +16,7 @@ namespace CV19.ViewModel.Base
 {
     internal class MainWindowViewModel : ViewModel
     {
+
         public ObservableCollection<Group> Groups { get; set; }
 
         #region SelectedGroup : Group - Выбранная группа
